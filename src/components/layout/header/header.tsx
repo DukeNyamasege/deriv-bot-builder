@@ -123,27 +123,7 @@ const AppHeader = observer(() => {
 
     const { isOAuth2Enabled } = useOauth2();
 
-    const [isToggled, setIsToggled] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [stake, setStake] = useState('');
-    const [martingale, setMartingale] = useState('');
 
-    const handleToggle = () => {
-        if (!isToggled) {
-            setIsModalOpen(true); // Open modal when toggled on
-        } else {
-            setIsToggled(false); // Turn off toggle
-        }
-    };
-
-    const handleProceed = () => {
-        if (stake.trim() && martingale.trim()) {
-            setIsToggled(true); // Enable toggle only if inputs are valid
-            setIsModalOpen(false); // Close modal
-        } else {
-            alert('Please enter valid Stake and Martingale values.');
-        }
-    };
 
     const renderAccountSection = () => {
         if (isAuthorizing) {
@@ -221,47 +201,8 @@ const AppHeader = observer(() => {
                 <AppLogo />
                 <MobileMenu />
                 <InfoIcon />
-                <button
-                    className="app-header__toggle"
-                    onClick={handleToggle}
-                    aria-pressed={isToggled}
-                >
-                    {isToggled ? 'ON' : 'OFF'}
-                </button>
             </Wrapper>
             <Wrapper variant='right'>{renderAccountSection()}</Wrapper>
-
-            {isModalOpen && (
-                <Modal
-                    is_open={isModalOpen}
-                    toggleModal={() => setIsModalOpen(false)}
-                    title="Select Stake and Martingale"
-                >
-                    <div className="modal-content">
-                        <label>
-                            Stake:
-                            <input
-                                type="number"
-                                value={stake}
-                                onChange={e => setStake(e.target.value)}
-                                placeholder="Enter stake"
-                            />
-                        </label>
-                        <label>
-                            Martingale:
-                            <input
-                                type="number"
-                                value={martingale}
-                                onChange={e => setMartingale(e.target.value)}
-                                placeholder="Enter martingale"
-                            />
-                        </label>
-                        <button onClick={handleProceed} className="proceed-button">
-                            Proceed
-                        </button>
-                    </div>
-                </Modal>
-            )}
         </Header>
     );
 });
