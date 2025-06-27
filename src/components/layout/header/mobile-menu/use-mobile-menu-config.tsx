@@ -54,12 +54,6 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
     const menuConfig: TMenuConfig[] = [
         [
             {
-                as: 'a',
-                href: 'https://mesoflix.online',
-                label: localize('mesoflix.online'),
-                LeftComponent: BrandDerivLogoCoralIcon,
-            },
-            {
                 as: 'button',
                 label: localize('Dark theme'),
                 LeftComponent: LegacyTheme1pxIcon,
