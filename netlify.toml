@@ -3,7 +3,7 @@
   command = "npm ci --legacy-peer-deps && npm run build"
 
 [build.environment]
-  NODE_VERSION = "20.8.1"
+  NODE_VERSION = "18"
   NPM_FLAGS = "--legacy-peer-deps"
   CI = "true"
   SKIP_PREFLIGHT_CHECK = "true"
