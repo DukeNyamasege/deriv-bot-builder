@@ -3,7 +3,7 @@ import ChunkLoader from '@/components/loader/chunk-loader';
 import { generateDerivApiInstance } from '@/external/bot-skeleton/services/api/appId';
 import { localize } from '@deriv-com/translations';
 import { URLUtils } from '@deriv-com/utils';
-import App from './App';
+import App from './App.tsx';
 
 const setLocalStorageToken = async (loginInfo: URLUtils.LoginInfo[], paramsToDelete: string[]) => {
     if (loginInfo.length) {
