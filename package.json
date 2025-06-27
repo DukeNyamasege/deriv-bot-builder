@@ -16,7 +16,7 @@
         "test:fix": "prettier --log-level silent --write . && eslint --fix \"./src/**/*.?(js|jsx|ts|tsx)\"",
         "test": "jest",
         "coverage": "jest --coverage",
-        "prepare": "husky install || true",
+
         "build:analyze": "BUNDLE_ANALYZE=true rsbuild build"
     },
     "dependencies": {
