@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.1",
     "engines": {
-        "node": "18.x"
+        "node": "20.x"
     },
     "scripts": {
         "start": "rsbuild dev",
@@ -16,7 +16,7 @@
         "test:fix": "prettier --log-level silent --write . && eslint --fix \"./src/**/*.?(js|jsx|ts|tsx)\"",
         "test": "jest",
         "coverage": "jest --coverage",
-        "prepare": "husky install",
+        "prepare": "husky install || true",
         "build:analyze": "BUNDLE_ANALYZE=true rsbuild build"
     },
     "dependencies": {
