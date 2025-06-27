@@ -1,10 +1,10 @@
 [build]
   publish = "dist"
-  command = "npm ci --legacy-peer-deps --ignore-engines && npm run build"
+  command = "npm ci --legacy-peer-deps --ignore-engines --no-optional && npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
   NPM_FLAGS = "--legacy-peer-deps --ignore-engines"
   CI = "true"
   SKIP_PREFLIGHT_CHECK = "true"
@@ -14,6 +14,10 @@
   NPM_CONFIG_IGNORE_ENGINES = "true"
   NPM_CONFIG_FUND = "false"
   NPM_CONFIG_AUDIT = "false"
+  NPM_CONFIG_OPTIONAL = "false"
+  NPM_CONFIG_PROGRESS = "false"
+  NPM_CONFIG_LOGLEVEL = "error"
+  HUSKY = "0"
 
 [[redirects]]
   from = "/*"
