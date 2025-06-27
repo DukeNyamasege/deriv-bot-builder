@@ -1,0 +1,259 @@
+:root {
+  --primary: #6c5ce7;
+  --primary-dark: #5649c0;
+  --secondary: #00cec9;
+  --accent: #fd79a8;
+  --background: #1a1a2e;
+  --card-bg: #16213e;
+  --text: #e2e2e2;
+  --text-secondary: #b8b8b8;
+  --up-color: #00b894;
+  --down-color: #d63031;
+  --neutral: #636e72;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: var(--secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.menu {
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 15px;
+  justify-content: center;
+}
+
+.menu span {
+  padding: 10px 20px;
+  flex: 0 1 auto;
+  min-width: 120px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 8px;
+  color: white;
+  background-color: var(--primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+
+.menu span:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+span.menu-active {
+  background: var(--secondary);
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.digits {
+  margin: 0 auto 20px;
+  display: flex;
+  gap: 8px;
+  max-width: 900px;
+  padding: 0 15px;
+}
+
+.digits span {
+  padding: 12px 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  color: white;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+}
+
+.digits_moved_down {
+  background-color: var(--down-color);
+  box-shadow: 0 2px 8px rgba(214, 48, 49, 0.3);
+}
+
+.digits_moved_up {
+  background-color: var(--up-color);
+  box-shadow: 0 2px 8px rgba(0, 184, 148, 0.3);
+}
+
+.chartContainer {
+  position: relative;
+  margin: 0 auto 25px;
+  height: 200px;
+  max-width: 1000px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.chartContainerAxisCord,
+.chartContainerDigitEven,
+.chartContainerDigitOdd,
+.chartContainerDigit {
+  position: relative;
+  margin: 0 auto 25px;
+  height: 200px;
+  max-width: 1000px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.SpotArrow {
+  margin: 0 auto 20px;
+  display: flex;
+  gap: 8px;
+  max-width: 900px;
+  padding: 0 15px;
+}
+
+.SpotArrow span {
+  padding: 12px 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.1);
+  font-weight: 600;
+}
+
+.Spot_Arrow_Up {
+  background: var(--up-color);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 184, 148, 0.3);
+}
+
+.Spot_Arrow_Down {
+  background: var(--down-color);
+  color: white;
+  box-shadow: 0 2px 8px rgba(214, 48, 49, 0.3);
+}
+
+.Spot_Arrow_Equal {
+  background: var(--neutral);
+  color: white;
+}
+
+.Spot_Arrow_M {
+  color: white;
+  background: var(--primary);
+}
+
+.arrow_up span, .arrow_down span {
+  display: inline-block;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  border-radius: 8px;
+  color: white;
+  margin: 10px 0;
+}
+
+.Arrow_Bg_Up {
+  background: var(--up-color);
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+
+.Arrow_Bg_Down {
+  background: var(--down-color);
+  box-shadow: 0 4px 12px rgba(214, 48, 49, 0.3);
+}
+
+.Arrow_Bg_Start {
+  background: var(--neutral);
+}
+
+.Arrow_Bg_Wait {
+  background: var(--accent);
+  box-shadow: 0 4px 12px rgba(253, 121, 168, 0.3);
+}
+
+#footer {
+  margin-top: 30px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .menu {
+    gap: 8px;
+  }
+  
+  .menu span {
+    min-width: calc(50% - 8px);
+    padding: 10px 5px;
+  }
+  
+  .digits, .SpotArrow {
+    gap: 5px;
+    padding: 0 10px;
+  }
+  
+  .digits span, .SpotArrow span {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .menu span {
+    font-size: 12px;
+    min-width: calc(50% - 6px);
+  }
+  
+  .digits, .SpotArrow {
+    gap: 4px;
+  }
+  
+  .digits span, .SpotArrow span {
+    padding: 6px 0;
+    font-size: 12px;
+  }
+  
+  .chartContainer, 
+  .chartContainerAxisCord,
+  .chartContainerDigitEven,
+  .chartContainerDigitOdd,
+  .chartContainerDigit {
+    height: 180px;
+  }
+}

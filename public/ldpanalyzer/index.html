@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tickshark LDP</title>
+    <link href="images/wallace1.png" type="image/png" rel="icon" sizes="16x16">
+    <link href="images/wallace1.png" type="image/png" rel="icon" sizes="32x32">
+    <link rel="stylesheet" href="style.css">
+    <script src="digits.js"></script>
+  </head>
+
+<body>
+ 
+  <body class="EN">
+    <h1>Tickshark🦈📈</h1>
+    <div class="menu">
+      <span class="" title="R_100" data-full-name="Volatility 100">v_100</span>
+      <span class="menu-active" title="R_10" data-full-name="Volatility 10">v_10</span>
+      <span class="" title="R_25" data-full-name="Volatility 25">v_25</span>
+      <span class="" title="R_50" data-full-name="Volatility 50">v_50</span>
+      <span class="" title="R_75" data-full-name="Volatility 75">v_75</span>
+      <span class="" title="RDBEAR" data-full-name="Bear Market">BEAR</span>
+      <span class="" title="RDBULL" data-full-name="Bull Market">BULL</span>
+    </div>
+   <div class="chartContainer" id="chartContainer"></div>
+   <div id="SpotArrow" class="SpotArrow">
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span> 
+      <span class="_"></span> 
+      <span class="_"></span> 
+      <span class="_"></span> 
+      <span class="_"></span> 
+      </div>
+   <div id="digits" class="digits">
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+    </div>
+    <div id="headcol" class="headcol">
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span>
+      <span class="_"></span> 
+    </div>
+   
+    <div class="chartContainerAxisCord" id="chartContainerAxisCord"></div>
+    <div class="chartContainerDigitEven" id="chartContainerDigitEven"></div>
+    <div class="chartContainerDigitOdd" id="chartContainerDigitOdd"></div>
+    <div class="chartContainerDigit" id="chartContainerDigit"></div>
+
+    <div id="arrow_up" class="arrow_up">
+      <span class="_"></span>
+      </div>
+     <div id="arrow_down" class="arrow_down">
+      <span class="_"></span>
+     </div>
+ <p>powered by MESOFLIX</p>
+        <div id="footer">
+            &copy; 2025<?php echo date("2025"); ?> 
+ 
+    <script src="canvasjs.min.js"></script>
+  </body>
+ <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript">
+      var ctx = document.getElementById("chartjs_bar").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels:<?php echo json_encode($productname); ?>,
+                        datasets: [{
+                            backgroundColor: [
+                               "#5969ff",
+                                "#ff407b",
+                                "#25d5f2",
+                                "#ffc750",
+                                "#2ec551",
+                                "#7040fa",
+                                "#ff004e"
+                            ],
+                            data:<?php echo json_encode($sales); ?>,
+                        }]
+                    },
+                    options: {
+                           legend: {
+                        display: true,
+                        position: 'bottom',
+ 
+                        labels: {
+                            fontColor: '#71748d',
+                            fontFamily: 'Circular Std Book',
+                            fontSize: 14,
+                        }
+                    },
+ 
+ 
+                }
+                });
+    </script>
+</html>

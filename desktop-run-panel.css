@@ -1,0 +1,17 @@
+.run-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 350px;
+    background: var(--general-main-1);
+    z-index: 8;
+}
+
+.run-panel__container {
+    border-left: 1px solid var(--general-section-1);
+}
+
+.run-panel--visible {
+    transform: translateX(0);
+}

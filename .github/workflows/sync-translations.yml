@@ -1,0 +1,44 @@
+name: Sync translations
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync_translations:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Ensure Secrets Are Loaded
+        run: |
+          missing_secrets=()
+          [[ -z "${{ secrets.CROWDIN_PROJECT_ID }}" ]] && missing_secrets+=("CROWDIN_PROJECT_ID")
+          [[ -z "${{ secrets.CROWDIN_PERSONAL_TOKEN }}" ]] && missing_secrets+=("CROWDIN_PERSONAL_TOKEN")
+          [[ -z "${{ secrets.R2_ACCOUNT_ID }}" ]] && missing_secrets+=("R2_ACCOUNT_ID")
+          [[ -z "${{ secrets.R2_ACCESS_KEY_ID }}" ]] && missing_secrets+=("R2_ACCESS_KEY_ID")
+          [[ -z "${{ secrets.R2_SECRET_ACCESS_KEY }}" ]] && missing_secrets+=("R2_SECRET_ACCESS_KEY")
+          [[ -z "${{ secrets.R2_BUCKET_NAME }}" ]] && missing_secrets+=("R2_BUCKET_NAME")
+
+          if [[ ${#missing_secrets[@]} -gt 0 ]]; then
+            echo "Error: The following secrets are missing: ${missing_secrets[*]}"
+            exit 1
+          else
+            echo "Success: All required secrets are configured."
+          fi
+
+      - name: Sync Bots translations
+        uses: deriv-com/translations/.github/actions/extract_and_sync_translations@master
+        with:
+          PROJECT_NAME: ${{ vars.R2_PROJECT_NAME }}
+          CROWDIN_BRANCH_NAME: staging
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          PROJECT_SOURCE_DIRECTORY: "src"

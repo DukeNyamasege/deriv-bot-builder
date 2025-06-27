@@ -1,0 +1,291 @@
+:root {
+  /* Light Blue Theme */
+  --primary-light: #e6f2ff;
+  --primary-main: #0077cc;
+  --primary-dark: #005299;
+  --secondary-light: #f0f8ff;
+  --text-primary: #1a3e72;
+  --text-secondary: #4a6fa5;
+  --background: #f8fbff;
+  --surface: #ffffff;
+  --border-light: #cce0ff;
+  --success-main: #17db4e;
+  --error-main: #ff3b30;
+  --highlight-yellow: #ffd700;
+  --highlight-glow: rgba(255, 215, 0, 0.3);
+
+  /* Chart Colors */
+  --chart-blue: #4e79a7;
+  --chart-green: #59a14f;
+  --chart-red: #e15759;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Blue Theme */
+    --primary-light: #0a1f33;
+    --primary-main: #3a8de0;
+    --primary-dark: #7ab8ff;
+    --secondary-light: #142a40;
+    --text-primary: #e0e9f5;
+    --text-secondary: #a8c5e5;
+    --background: #0b1622;
+    --surface: #15202b;
+    --border-light: #2a3d56;
+    --success-main: #2ecc71;
+    --error-main: #ff6b6b;
+    --highlight-yellow: #ffd700;
+    --highlight-glow: rgba(255, 215, 0, 0.2);
+  }
+}
+
+/* Base Styles */
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--surface);
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--border-light);
+}
+
+header h1 {
+  color: var(--primary-main);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+select, input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  font-family: 'Rubik', sans-serif;
+  transition: all 0.3s;
+}
+
+select:focus, input:focus {
+  outline: none;
+  border-color: var(--primary-main);
+  box-shadow: 0 0 0 2px var(--highlight-glow);
+}
+
+/* Main Content Styles */
+main {
+  padding: 1rem 0;
+}
+
+section {
+  background-color: var(--surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+}
+
+h2 {
+  color: var(--primary-main);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Price Display */
+#current-price {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-main);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Digit Display */
+#digit-display-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.digit-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: var(--primary-light);
+  color: var(--text-primary);
+  border: 2px solid var(--border-light);
+  transition: all 0.3s;
+}
+
+.digit-container.current .digit-box {
+  background-color: var(--highlight-yellow);
+  border-color: var(--highlight-yellow);
+  color: #000;
+  box-shadow: 0 0 10px var(--highlight-glow);
+}
+
+.digit-container.highest .digit-box {
+  background-color: var(--success-main);
+  border-color: var(--success-main);
+  color: white;
+}
+
+.digit-container.lowest .digit-box {
+  background-color: var(--error-main);
+  border-color: var(--error-main);
+  color: white;
+}
+
+.digit-percentage {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--highlight-yellow);
+  position: absolute;
+  top: -10px;
+  display: none;
+}
+
+.digit-container.current .arrow {
+  display: block;
+}
+
+/* Odd/Even Display */
+#last-50-oe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.oe-box {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.oe-box.even {
+  background-color: var(--chart-blue);
+  color: white;
+}
+
+.oe-box.odd {
+  background-color: var(--chart-red);
+  color: white;
+}
+
+/* Chart Styles */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 200px;
+  margin-top: 1rem;
+}
+
+/* Percentage Text Styles */
+#digit-percentage,
+#even-odd-percentage,
+#rise-fall-percentage {
+  display: block;
+  text-align: center;
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .digit-box {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  
+  section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .digit-box {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  
+  .oe-box {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}

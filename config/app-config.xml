@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appConfig version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="../schema/app-config.xsd">
+    <settings>
+        <setting name="theme" value="dark"/>
+        <setting name="language" value="en"/>
+        <setting name="autoSave" value="true"/>
+    </settings>
+</appConfig>
