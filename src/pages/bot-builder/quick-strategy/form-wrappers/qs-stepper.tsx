@@ -1,5 +1,5 @@
 import React from 'react';
-import { VerticalStepper } from '@deriv-com/quill-ui';
+import { Stepper } from '@deriv-com/quill-ui';
 import { localize } from '@deriv-com/translations';
 import { LinearProgressBar } from '@deriv-com/ui';
 import { QsSteps } from './trade-constants';
@@ -15,7 +15,7 @@ const QSStepper = ({ current_step, is_mobile = false }: TQSStepper) => {
         <LinearProgressBar percentage={percentage} label='' danger_limit={101} is_loading={false} warning_limit={0} />
     ) : (
         <div className='qs-stepper'>
-            <VerticalStepper
+            <Stepper
                 currentStep={current_step}
                 labels={[localize('Default'), localize('Strategy template'), localize('Trade parameters')]}
             />
