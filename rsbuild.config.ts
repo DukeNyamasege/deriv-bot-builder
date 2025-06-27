@@ -67,22 +67,6 @@ export default defineConfig({
             { from: 'node_modules/@deriv/deriv-charts/dist/chart/assets/shaders/*', to: 'assets/shaders/[name][ext]' },
             { from: path.join(__dirname, 'public') },
         ],
-        assetPrefix: '/',
-        filename: {
-            js: '[name].[contenthash:8].js',
-            css: '[name].[contenthash:8].css',
-        },
-    },
-    performance: {
-        chunkSplit: {
-            strategy: 'split-by-experience',
-        },
-        preload: {
-            type: 'all-chunks',
-        },
-        prefetch: {
-            type: 'all-chunks',
-        },
     },
     html: {
         template: './index.html',
@@ -99,31 +83,6 @@ export default defineConfig({
         rspack: {
             plugins: [],
             resolve: {},
-            optimization: {
-                splitChunks: {
-                    chunks: 'all',
-                    cacheGroups: {
-                        vendor: {
-                            test: /[\\/]node_modules[\\/]/,
-                            name: 'vendors',
-                            chunks: 'all',
-                            priority: 10,
-                        },
-                        blockly: {
-                            test: /[\\/]node_modules[\\/]blockly[\\/]/,
-                            name: 'blockly',
-                            chunks: 'all',
-                            priority: 20,
-                        },
-                        charts: {
-                            test: /[\\/]node_modules[\\/]@deriv[\\/]deriv-charts[\\/]/,
-                            name: 'charts',
-                            chunks: 'all',
-                            priority: 20,
-                        },
-                    },
-                },
-            },
             module: {
                 rules: [
                     {
