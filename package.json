@@ -3,7 +3,8 @@
     "private": true,
     "version": "0.0.1",
     "engines": {
-        "node": "20.x"
+        "node": "18.x",
+        "npm": "9.x"
     },
     "scripts": {
         "start": "rsbuild dev",
