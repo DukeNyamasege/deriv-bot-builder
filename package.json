@@ -7,9 +7,9 @@
         "npm": "9.x"
     },
     "scripts": {
-        "start": "npx @rsbuild/core dev",
-        "build": "npx @rsbuild/core build",
-        "watch": "npx @rsbuild/core build --watch",
+        "start": "rsbuild dev",
+        "build": "rsbuild build",
+        "watch": "rsbuild build --watch",
         "serve": "live-server --port=8443 --host=localhost dist",
         "start:webpack": "webpack serve --open --config webpack.config.js",
         "build:webpack": "webpack --config webpack.config.js",
@@ -18,7 +18,7 @@
         "test": "jest",
         "coverage": "jest --coverage",
 
-        "build:analyze": "BUNDLE_ANALYZE=true npx @rsbuild/core build"
+        "build:analyze": "BUNDLE_ANALYZE=true rsbuild build"
     },
     "dependencies": {
         "@datadog/browser-rum": "^5.31.1",
