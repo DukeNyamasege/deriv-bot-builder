@@ -1,19 +1,9 @@
 [build]
   publish = "dist"
-  command = "npm --version && node --version && npm install --legacy-peer-deps && npm run build"
+  command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "20.8.1"
-  NPM_VERSION = "10"
-  NPM_FLAGS = "--legacy-peer-deps"
-  CI = "true"
-  SKIP_PREFLIGHT_CHECK = "true"
-  YARN_ENABLED = "false"
-  NPM_CONFIG_ENGINE_STRICT = "false"
-  NPM_CONFIG_FUND = "false"
-  NPM_CONFIG_AUDIT = "false"
-  NPM_CONFIG_PROGRESS = "false"
-  HUSKY = "0"
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"

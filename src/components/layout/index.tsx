@@ -89,12 +89,12 @@ const Layout = () => {
     ]);
 
     return (
-        <div className={clsx('layout', { responsive: isDesktop })}>
-            {!isCallbackPage && <AppHeader />}
+        <div className={clsx('layout', { responsive: isDesktop, 'endpoint-page': isEndpointPage })}>
+            {!isCallbackPage && !isEndpointPage && <AppHeader />}
             <Body>
                 <Outlet />
             </Body>
-            {!isCallbackPage && isDesktop && <Footer />}
+            {!isCallbackPage && !isEndpointPage && isDesktop && <Footer />}
         </div>
     );
 };

@@ -54,6 +54,12 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
     const menuConfig: TMenuConfig[] = [
         [
             {
+                as: 'a',
+                href: 'https://mesoflix.online',
+                label: localize('mesoflix.online'),
+                LeftComponent: BrandDerivLogoCoralIcon,
+            },
+            {
                 as: 'button',
                 label: localize('Dark theme'),
                 LeftComponent: LegacyTheme1pxIcon,
@@ -65,7 +71,7 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
                 cs_chat_whatsapp
                     ? {
                           as: 'a',
-                          href: 'https://chat.whatsapp.com/E2cZOyZr75VExcbkprwuTe',
+                          href: 'https://wa.link/2xcwcb',
                           label: localize('WhatsApp'),
                           LeftComponent: LegacyWhatsappIcon,
                           target: '_blank',

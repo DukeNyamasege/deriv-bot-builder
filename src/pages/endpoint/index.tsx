@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { getAppId, getDefaultAppIdAndUrl, getSocketURL } from '@/components/shared';
 import { Button, Input, Text } from '@deriv-com/ui';
 import { LocalStorageConstants } from '@deriv-com/utils';
 import './endpoint.scss';
+
 const Endpoint = () => {
+    // Override body background for endpoint page
+    useEffect(() => {
+        const body = document.body;
+        const originalBackground = body.style.background;
+        body.style.background = '#ffffff';
+
+        return () => {
+            body.style.background = originalBackground;
+        };
+    }, []);
     const formik = useFormik({
         initialValues: {
             appId: localStorage.getItem(LocalStorageConstants.configAppId) ?? getAppId(),

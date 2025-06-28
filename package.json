@@ -3,13 +3,12 @@
     "private": true,
     "version": "0.0.1",
     "engines": {
-        "node": "20.x",
-        "npm": "10.x"
+        "node": "18.x"
     },
     "scripts": {
-        "start": "npx rsbuild dev",
-        "build": "npx rsbuild build",
-        "watch": "npx rsbuild build --watch",
+        "start": "rsbuild dev",
+        "build": "rsbuild build",
+        "watch": "rsbuild build --watch",
         "serve": "live-server --port=8443 --host=localhost dist",
         "start:webpack": "webpack serve --open --config webpack.config.js",
         "build:webpack": "webpack --config webpack.config.js",
@@ -17,17 +16,17 @@
         "test:fix": "prettier --log-level silent --write . && eslint --fix \"./src/**/*.?(js|jsx|ts|tsx)\"",
         "test": "jest",
         "coverage": "jest --coverage",
-
-        "build:analyze": "BUNDLE_ANALYZE=true npx rsbuild build"
+        "prepare": "husky install",
+        "build:analyze": "BUNDLE_ANALYZE=true rsbuild build"
     },
     "dependencies": {
         "@datadog/browser-rum": "^5.31.1",
         "@deriv-com/analytics": "^1.5.3",
         "@deriv-com/auth-client": "^1.3.10",
-        "@deriv-com/quill-ui": "1.17.0",
+        "@deriv-com/quill-ui": "1.18.1",
         "@deriv-com/translations": "^1.3.9",
         "@deriv-com/ui": "^1.37.1",
-        "@deriv-com/utils": "0.0.42",
+        "@deriv-com/utils": "latest",
         "@deriv/deriv-api": "^1.0.15",
         "@deriv/deriv-charts": "^2.5.1",
         "@deriv/js-interpreter": "^3.0.0",
@@ -93,10 +92,10 @@
         "@commitlint/config-conventional": "^17.1.0",
         "@deriv/api-types": "^1.0.2463",
         "@jest/globals": "^29.7.0",
-        "@rsbuild/core": "^1.0.19",
-        "@rsbuild/plugin-basic-ssl": "^1.0.19",
-        "@rsbuild/plugin-react": "^1.0.19",
-        "@rsbuild/plugin-sass": "^1.0.19",
+        "@rsbuild/core": "^1.0.1-beta.1",
+        "@rsbuild/plugin-basic-ssl": "^1.1.1",
+        "@rsbuild/plugin-react": "^1.0.1-beta.1",
+        "@rsbuild/plugin-sass": "^1.0.1-beta.1",
         "@testing-library/dom": "^10.3.1",
         "@testing-library/jest-dom": "^6.4.6",
         "@testing-library/react": "^16.0.0",
@@ -137,7 +136,7 @@
         "postcss": "^8.4.38",
         "prettier": "^3.1.0",
         "raw-loader": "^4.0.2",
-        "rimraf": "^3.0.2",
+        "rimraf": "^6.0.1",
         "sass": "^1.80.4",
         "sass-loader": "^14.2.1",
         "sass-resources-loader": "^2.2.5",
